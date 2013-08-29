@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="Imgr Uploadr">
+</Property><Property Name="Solution File" Value="C:\Users\andrei\Desktop\Imgr Uploadr\Imgr Uploadr\Imgr Uploadr.sln">
+</Property><Property Name="User Options File" Value="C:\Users\andrei\Desktop\Imgr Uploadr\Imgr Uploadr\Imgr Uploadr.suo">
+</Property><Property Name="Date" Value="26 martie 2013">
+</Property><Property Name="Time" Value="18:19">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="Imgr Uploadr.sln" Description="File successfully backed up as C:\Users\andrei\Desktop\Imgr Uploadr\Imgr Uploadr\Backup\Imgr Uploadr.sln">
+</Event><Event ErrorLevel="0" Project="" Source="Imgr Uploadr.suo" Description="File successfully backed up as C:\Users\andrei\Desktop\Imgr Uploadr\Imgr Uploadr\Backup\Imgr Uploadr.suo">
+</Event><Event ErrorLevel="0" Project="Imgr Uploadr" Source="Imgr Uploadr.csproj" Description="Project file successfully backed up as C:\Users\andrei\Desktop\Imgr Uploadr\Imgr Uploadr\Backup\Imgr Uploadr.csproj">
+</Event><Event ErrorLevel="0" Project="Imgr Uploadr" Source="Form1.cs" Description="File successfully backed up as C:\Users\andrei\Desktop\Imgr Uploadr\Imgr Uploadr\Backup\Form1.cs">
+</Event><Event ErrorLevel="0" Project="Imgr Uploadr" Source="Form1.Designer.cs" Description="File successfully backed up as C:\Users\andrei\Desktop\Imgr Uploadr\Imgr Uploadr\Backup\Form1.Designer.cs">
+</Event><Event ErrorLevel="0" Project="Imgr Uploadr" Source="History.cs" Description="File successfully backed up as C:\Users\andrei\Desktop\Imgr Uploadr\Imgr Uploadr\Backup\History.cs">
+</Event><Event ErrorLevel="0" Project="Imgr Uploadr" Source="History.Designer.cs" Description="File successfully backed up as C:\Users\andrei\Desktop\Imgr Uploadr\Imgr Uploadr\Backup\History.Designer.cs">
+</Event><Event ErrorLevel="0" Project="Imgr Uploadr" Source="PhotoViewer.cs" Description="File successfully backed up as C:\Users\andrei\Desktop\Imgr Uploadr\Imgr Uploadr\Backup\PhotoViewer.cs">
+</Event><Event ErrorLevel="0" Project="Imgr Uploadr" Source="PhotoViewer.Designer.cs" Description="File successfully backed up as C:\Users\andrei\Desktop\Imgr Uploadr\Imgr Uploadr\Backup\PhotoViewer.Designer.cs">
+</Event><Event ErrorLevel="0" Project="Imgr Uploadr" Source="Program.cs" Description="File successfully backed up as C:\Users\andrei\Desktop\Imgr Uploadr\Imgr Uploadr\Backup\Program.cs">
+</Event><Event ErrorLevel="0" Project="Imgr Uploadr" Source="Properties\AssemblyInfo.cs" Description="File successfully backed up as C:\Users\andrei\Desktop\Imgr Uploadr\Imgr Uploadr\Backup\Properties\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="Imgr Uploadr" Source="TextInput.cs" Description="File successfully backed up as C:\Users\andrei\Desktop\Imgr Uploadr\Imgr Uploadr\Backup\TextInput.cs">
+</Event><Event ErrorLevel="0" Project="Imgr Uploadr" Source="TextInput.Designer.cs" Description="File successfully backed up as C:\Users\andrei\Desktop\Imgr Uploadr\Imgr Uploadr\Backup\TextInput.Designer.cs">
+</Event><Event ErrorLevel="0" Project="Imgr Uploadr" Source="UploadedPhoto.cs" Description="File successfully backed up as C:\Users\andrei\Desktop\Imgr Uploadr\Imgr Uploadr\Backup\UploadedPhoto.cs">
+</Event><Event ErrorLevel="0" Project="Imgr Uploadr" Source="Uploader.cs" Description="File successfully backed up as C:\Users\andrei\Desktop\Imgr Uploadr\Imgr Uploadr\Backup\Uploader.cs">
+</Event><Event ErrorLevel="0" Project="Imgr Uploadr" Source="Uploader.Designer.cs" Description="File successfully backed up as C:\Users\andrei\Desktop\Imgr Uploadr\Imgr Uploadr\Backup\Uploader.Designer.cs">
+</Event><Event ErrorLevel="0" Project="Imgr Uploadr" Source="Properties\Resources.Designer.cs" Description="File successfully backed up as C:\Users\andrei\Desktop\Imgr Uploadr\Imgr Uploadr\Backup\Properties\Resources.Designer.cs">
+</Event><Event ErrorLevel="0" Project="Imgr Uploadr" Source="Properties\Settings.Designer.cs" Description="File successfully backed up as C:\Users\andrei\Desktop\Imgr Uploadr\Imgr Uploadr\Backup\Properties\Settings.Designer.cs">
+</Event><Event ErrorLevel="0" Project="Imgr Uploadr" Source="Properties\Settings.settings" Description="File successfully backed up as C:\Users\andrei\Desktop\Imgr Uploadr\Imgr Uploadr\Backup\Properties\Settings.settings">
+</Event><Event ErrorLevel="0" Project="Imgr Uploadr" Source="Form1.resx" Description="File successfully backed up as C:\Users\andrei\Desktop\Imgr Uploadr\Imgr Uploadr\Backup\Form1.resx">
+</Event><Event ErrorLevel="0" Project="Imgr Uploadr" Source="History.resx" Description="File successfully backed up as C:\Users\andrei\Desktop\Imgr Uploadr\Imgr Uploadr\Backup\History.resx">
+</Event><Event ErrorLevel="0" Project="Imgr Uploadr" Source="PhotoViewer.resx" Description="File successfully backed up as C:\Users\andrei\Desktop\Imgr Uploadr\Imgr Uploadr\Backup\PhotoViewer.resx">
+</Event><Event ErrorLevel="0" Project="Imgr Uploadr" Source="Properties\Resources.resx" Description="File successfully backed up as C:\Users\andrei\Desktop\Imgr Uploadr\Imgr Uploadr\Backup\Properties\Resources.resx">
+</Event><Event ErrorLevel="0" Project="Imgr Uploadr" Source="TextInput.resx" Description="File successfully backed up as C:\Users\andrei\Desktop\Imgr Uploadr\Imgr Uploadr\Backup\TextInput.resx">
+</Event><Event ErrorLevel="0" Project="Imgr Uploadr" Source="Imgr Uploadr.csproj" Description="The project file does not require conversion.">
+</Event><Event ErrorLevel="3" Project="Imgr Uploadr" Source="Imgr Uploadr.csproj" Description="No Conversion Required">
+</Event><Event ErrorLevel="0" Project="" Source="Imgr Uploadr.sln" Description="Solution converted successfully">
+</Event><Event ErrorLevel="3" Project="" Source="Imgr Uploadr.sln" Description="Converted">
+</Event></UpgradeLog>
