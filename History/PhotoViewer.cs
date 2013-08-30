@@ -21,29 +21,8 @@ namespace Universal_Chevereto_Uploadr
         {
         	q=p;
             InitializeComponent ();
-            Thread t=new Thread ((ThreadStart)delegate
-            {
-                this.Invoke ((MethodInvoker)delegate
-                {
-                    //show the photo inside a browser (IE based WebBrowsed control was used)
-                    //by navigating to its DirectLink URL
-                    webBrowser1.Navigate (p.DirectLink);
-                });
-            });
-            //delay a moment before the thread which shows the picture runs,
-            //just to let the form's control to be initialized
-            //(if I was running the thread without a delay, it would raised an object not set
-            //exception <<refering to the webBrowser1 object>>, so I need for this function
-            //to finish before shoing the picture)
-            System.Windows.Forms.Timer te=new System.Windows.Forms.Timer ();
-            te.Interval=10;
-            te.Tick+=delegate
-            {
-                t.Start ();
-                te.Stop ();
-            };
-            te.Start ();
             //initializing
+            this.pictureBox1.ImageLocation=p.DirectLink;
             this.ShowInTaskbar=true;
             this.Icon=Properties.Resources.favicon;
             this.Text=q.LocalName+" - Photo viewer";
