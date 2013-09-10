@@ -104,6 +104,10 @@
     <Compile Include="Basics\CropArea.Designer.cs">
       <DependentUpon>CropArea.cs</DependentUpon>
     </Compile>
+    <Compile Include="Basics\CropSelector.cs" />
+    <Compile Include="Basics\CropSelector.Designer.cs">
+      <DependentUpon>CropSelector.cs</DependentUpon>
+    </Compile>
     <Compile Include="Basics\DragDropFiles.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -148,6 +152,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Basics\CropArea.resx">
       <DependentUpon>CropArea.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Basics\CropSelector.resx">
+      <DependentUpon>CropSelector.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Basics\DragDropFiles.resx">
       <DependentUpon>DragDropFiles.cs</DependentUpon>
@@ -203,6 +210,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Universal Chevereto Uploadr.cd" />
     <None Include="dll\Upload.png" />
     <None Include="dll\favicon.ico" />
     <None Include="dll\uploadicon.ico" />

@@ -39,18 +39,17 @@ namespace Universal_Chevereto_Uploadr
         /// </summary>
         private void InitializeComponent()
         {
-            this.SuspendLayout();
-            // 
-            // CropArea
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 262);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
-            this.Name = "CropArea";
-            this.Text = "Select crop area:";
-            this.ResumeLayout(false);
-
+        	this.SuspendLayout();
+        	// 
+        	// CropArea
+        	// 
+        	this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+        	this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+        	this.ClientSize = new System.Drawing.Size(284, 262);
+        	this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+        	this.Name = "CropArea";
+        	this.Text = "Select crop area:";
+        	this.ResumeLayout(false);
         }
 
         #endregion
