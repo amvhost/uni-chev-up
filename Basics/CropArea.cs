@@ -90,7 +90,11 @@ namespace Universal_Chevereto_Uploadr
 	        				}
 	        				else UploadButton.Location=new Point (TheSelector.Location.X+TheSelector.Width-50, TheSelector.Location.Y+TheSelector.Height+5);
 	        			};
-            			TheSelector.LocationChanged+=delegate {UploadButton.Location=new Point (TheSelector.Location.X+TheSelector.Width-50, TheSelector.Location.Y+TheSelector.Height+5);};
+            			TheSelector.LocationChanged+=delegate
+            			{
+            				if (UploadButton!=null)
+            					UploadButton.Location=new Point (TheSelector.Location.X+TheSelector.Width-50, TheSelector.Location.Y+TheSelector.Height+5);
+            			};
 	        			UploadButton=new Button ();
 	        			UploadButton.FlatStyle=FlatStyle.Flat;
 	        			UploadButton.Text="Upload";
@@ -102,9 +106,12 @@ namespace Universal_Chevereto_Uploadr
         			}
         			else
         			{
-        				TheSelector.Location=new Point (r.X, r.Y);
-        				TheSelector.Size=new Size (r.Width, r.Height);
-        				UploadButton.Location=new Point (TheSelector.Location.X+TheSelector.Width-50, TheSelector.Location.Y+TheSelector.Height+5);
+        				if (TheSelector!=null)
+        				{
+        					TheSelector.Location=new Point (r.X, r.Y);
+        					TheSelector.Size=new Size (r.Width, r.Height);
+        				}
+        				if (UploadButton!=null) UploadButton.Location=new Point (TheSelector.Location.X+TheSelector.Width-50, TheSelector.Location.Y+TheSelector.Height+5);
         			}
         		}
         		else
