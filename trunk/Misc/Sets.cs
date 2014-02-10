@@ -19,7 +19,7 @@ namespace Universal_Chevereto_Uploadr
     {
     	//static class containing application's global settings
         private static Ini s;
-        private static bool _StartOnStartup, _CopyAfterUpload, _AutoUpdateCheck, _ProxyOn, _Bug563Fix, _SaveScreenshots;
+        private static bool _StartOnStartup, _CopyAfterUpload, _ProxyOn, _Bug563Fix, _SaveScreenshots;
         private static string _ProxyServer, _ProxyPort;
 
         public static void ReadSets ()
@@ -32,7 +32,6 @@ namespace Universal_Chevereto_Uploadr
             //read the settings
             _StartOnStartup=Convert.ToBoolean (s.IniRead ("General", "startup"));
             _CopyAfterUpload=Convert.ToBoolean (s.IniRead ("General", "copyafter"));
-            _AutoUpdateCheck=Convert.ToBoolean (s.IniRead ("General", "autocheck"));
             _ProxyOn=Convert.ToBoolean (s.IniRead ("Proxy", "on"));
             _ProxyServer=s.IniRead ("Proxy", "adress");
             _ProxyPort=s.IniRead ("Proxy", "port");
@@ -43,7 +42,7 @@ namespace Universal_Chevereto_Uploadr
         public static bool CopyAfterUpload
         {
             get {return _CopyAfterUpload;}
-            set {_CopyAfterUpload=value; s.IniWrite ("General", "startup", value.ToString ());}
+            set {_CopyAfterUpload=value; s.IniWrite ("General", "copyafter", value.ToString ());}
         }
 
         public static bool SaveScreenshots
@@ -55,13 +54,7 @@ namespace Universal_Chevereto_Uploadr
         public static bool StartOnStartup
         {
             get {return _StartOnStartup;}
-            set {_StartOnStartup=value; s.IniWrite ("General", "sendto", value.ToString ());}
-        }
-
-        public static bool AutoUpdateCheck
-        {
-            get {return _AutoUpdateCheck;}
-            set {_AutoUpdateCheck=value; s.IniWrite ("General", "autocheck", value.ToString ());}
+            set {_StartOnStartup=value; s.IniWrite ("General", "startup", value.ToString ());}
         }
 
         public static bool ProxyOn

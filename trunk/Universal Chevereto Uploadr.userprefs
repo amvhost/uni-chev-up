@@ -1,6 +1,12 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Basics/Settings.cs">
+    <Files>
+      <File FileName="Basics/Settings.cs" Line="35" Column="39" />
+      <File FileName="Misc/Hotkeys.cs" Line="13" Column="4" />
+      <File FileName="Program.cs" Line="36" Column="34" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

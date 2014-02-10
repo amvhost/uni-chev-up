@@ -31,34 +31,17 @@ namespace Universal_Chevereto_Uploadr
     public class Checker
     {
         public NotifyIcon notify;
-        private ContextMenu contextmenu=new ContextMenu ();
+        public ContextMenu contextmenu=new ContextMenu ();
         
         public void BuildContextMenu ()
         {
         	//build the main menu
             contextmenu.MenuItems.Clear ();
-            MenuItem item=new MenuItem ("Upload files", new EventHandler (Program.MainClassInstance.uploadFilesToolStripMenuItem_Click));
-            contextmenu.MenuItems.Add (item);
-            item=new MenuItem ("Drag && Drop files", new EventHandler (Program.MainClassInstance.dragDropFilesToolStripMenuItem_Click));
-            contextmenu.MenuItems.Add (item);
-            item=new MenuItem ("Upload from clipboard", new EventHandler (Program.MainClassInstance.uploadFromClipboardToolStripMenuItem_Click));
-            contextmenu.MenuItems.Add (item);
-            item=new MenuItem ("Upload desktop screenshot", new EventHandler (Program.MainClassInstance.uploadDesktopScreenshotToolStripMenuItem_Click));
-            contextmenu.MenuItems.Add (item);
-            item=new MenuItem ("Upload cropped screenshot", new EventHandler (Program.MainClassInstance.uploadCroppedScreenshotToolStripMenuItem_Click));
-            contextmenu.MenuItems.Add (item);
-            item=new MenuItem ("Upload active window screenshot", new EventHandler (Program.MainClassInstance.ScreenshotActiveWindow));
-            contextmenu.MenuItems.Add (item);
-            item=new MenuItem ("Remote upload", new EventHandler (Program.MainClassInstance.UrlUpload));
-            contextmenu.MenuItems.Add (item);
-            item=new MenuItem ("Settings", new EventHandler (Program.MainClassInstance.optionsToolStripMenuItem_Click));
-            contextmenu.MenuItems.Add (item);
-            item=new MenuItem ("History", new EventHandler (Program.MainClassInstance.uploadedPhotosToolStripMenuItem_Click));
-            contextmenu.MenuItems.Add (item);
-            item=new MenuItem ("About", new EventHandler (Program.MainClassInstance.aboutToolStripMenuItem_Click));
-            contextmenu.MenuItems.Add (item);
-            item=new MenuItem ("Exit", new EventHandler (Menu_OnExit));
-            contextmenu.MenuItems.Add (item);
+			foreach (var functionality in Program.AppFunctionalities)
+			{
+            	MenuItem item=new MenuItem (functionality.Key, functionality.Value);
+            	contextmenu.MenuItems.Add (item);
+			}
             //and set the icon of the NotifyIcon control
             try {notify.Icon=Properties.Resources.favicon;}
             catch {}
@@ -90,12 +73,6 @@ namespace Universal_Chevereto_Uploadr
             notify.ContextMenu = contextmenu;
             notify.Icon=Properties.Resources.favicon;
             notify.Visible = true;
-        }
-
-        void Menu_OnExit (Object sender, EventArgs e)
-        {
-            Program.checker.contextmenu.Dispose ();
-            Application.Exit ();
         }
     }
 }

@@ -31,6 +31,17 @@ namespace Universal_Chevereto_Uploadr
         public static MainClass MainClassInstance;
         public static Checker checker;
         public static string AppPath;
+		
+		/*store app's main features ' descriptions and events:
+		* the key=feature's description:
+		* 0=Upload files
+		* 1=Drag and Drop files					6=Remote upload
+		* 2=Upload from clipboard				7=Settings
+		* 3=Upload desktop screenshot			8=History
+		* 4=Upload cropped screenshot			9=About
+		* 5=Upload active window screenshot		10=Exit
+		* the value = link the feature's description to its functionality*/
+		public static List <KeyValuePair <string, EventHandler>> AppFunctionalities;
 
         [STAThread]
         static void Main ()
@@ -47,6 +58,7 @@ namespace Universal_Chevereto_Uploadr
             Sets.ReadSets ();
             ReadConfig ();
             ReadHistory ();
+			Hotkeys.ReadHotkeySettings ();
             //a strange bug's fix
             if (Sets.Bug563Fix) Sets.Bug563Fix=false;
             else
@@ -61,6 +73,7 @@ namespace Universal_Chevereto_Uploadr
             MainClassInstance.Wins[0]=GetForegroundWindow ();
             MainClassInstance.Wins[1]=MainClassInstance.Wins[0];
             MainClassInstance.Wins[2]=MainClassInstance.Wins[1];
+			InitAppFunctionalities ();
             //initializing the formless notify icon and its menu
             checker=new Checker ();
             Application.Run ();
@@ -162,5 +175,25 @@ namespace Universal_Chevereto_Uploadr
             Url=i.IniRead ("Api", "Url");
             Key=i.IniRead ("Api", "Key");
         }
+		
+		public static void InitAppFunctionalities ()
+		{
+			AppFunctionalities=new List <KeyValuePair <string, EventHandler>> ();
+			AppFunctionalities.Add (new KeyValuePair <string, EventHandler> ("Upload files", new EventHandler (Program.MainClassInstance.uploadFilesToolStripMenuItem_Click)));
+			AppFunctionalities.Add (new KeyValuePair <string, EventHandler> ("Drag and Drop files", new EventHandler (Program.MainClassInstance.dragDropFilesToolStripMenuItem_Click)));
+			AppFunctionalities.Add (new KeyValuePair <string, EventHandler> ("Upload from clipboard", new EventHandler (Program.MainClassInstance.uploadFromClipboardToolStripMenuItem_Click)));
+			AppFunctionalities.Add (new KeyValuePair <string, EventHandler> ("Upload desktop screenshot", new EventHandler (Program.MainClassInstance.uploadDesktopScreenshotToolStripMenuItem_Click)));
+			AppFunctionalities.Add (new KeyValuePair <string, EventHandler> ("Upload cropped screenshot", new EventHandler (Program.MainClassInstance.uploadCroppedScreenshotToolStripMenuItem_Click)));
+			AppFunctionalities.Add (new KeyValuePair <string, EventHandler> ("Upload active window screenshot", new EventHandler (Program.MainClassInstance.ScreenshotActiveWindow)));
+			AppFunctionalities.Add (new KeyValuePair <string, EventHandler> ("Remote upload", new EventHandler (Program.MainClassInstance.UrlUpload)));
+			AppFunctionalities.Add (new KeyValuePair <string, EventHandler> ("Settings", new EventHandler (Program.MainClassInstance.optionsToolStripMenuItem_Click)));
+			AppFunctionalities.Add (new KeyValuePair <string, EventHandler> ("History", new EventHandler (Program.MainClassInstance.uploadedPhotosToolStripMenuItem_Click)));
+			AppFunctionalities.Add (new KeyValuePair <string, EventHandler> ("About", new EventHandler (Program.MainClassInstance.aboutToolStripMenuItem_Click)));
+			AppFunctionalities.Add (new KeyValuePair <string, EventHandler> ("Exit", new EventHandler (delegate
+			{
+				Program.checker.contextmenu.Dispose ();
+            	Application.Exit ();
+			})));
+		}
     }
 }

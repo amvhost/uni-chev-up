@@ -10,6 +10,7 @@
 */
 
 using System;
+using System.IO;
 using System.Text;
 using System.Drawing;
 using System.Diagnostics;
@@ -24,9 +25,8 @@ namespace Universal_Chevereto_Uploadr
     public class Ini
     {
         public string path;
-
-        //some interop WinApi dll imports
-        [DllImport ("kernel32")] private static extern long WritePrivateProfileString (string section, string key, string val, string filePath);
+  
+		[DllImport ("kernel32")] private static extern long WritePrivateProfileString (string section, string key, string val, string filePath);
         [DllImport ("kernel32")] private static extern int    GetPrivateProfileString (string section, string key, string def, StringBuilder retVal, int size, string filePath);
    
         public Ini (string INIPath)
@@ -39,7 +39,7 @@ namespace Universal_Chevereto_Uploadr
             WritePrivateProfileString (Section, Key, Value, this.path);
         }
    
-        public string IniRead (string Section,string Key)
+        public string IniRead (string Section, string Key)
         {
     	    StringBuilder sb=new StringBuilder (255);
     	    GetPrivateProfileString(Section,Key,"",sb,255, this.path);

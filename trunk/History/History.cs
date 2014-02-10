@@ -36,7 +36,7 @@ namespace Universal_Chevereto_Uploadr
             ImageList il=new ImageList ();
             il.Images.Add (Properties.Resources.favicon);
             listView1.LargeImageList=il;
-            this.FormClosing+=delegate {Program.checker.BuildContextMenu ();};
+            //this.FormClosing+=delegate {Program.checker.BuildContextMenu ();};
         }
 
         void listView1_DoubleClick (object sender, EventArgs e)
