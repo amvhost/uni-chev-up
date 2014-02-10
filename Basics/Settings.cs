@@ -30,7 +30,6 @@ namespace Universal_Chevereto_Uploadr
             this.ShowInTaskbar=true;
             this.Icon=Properties.Resources.favicon;
             checkBox1.Checked=Sets.CopyAfterUpload;
-            checkBox6.Checked=Sets.AutoUpdateCheck;
             checkBox2.Checked=Sets.StartOnStartup;
             checkBox7.Checked=Sets.ProxyOn;
             label1.Enabled=Sets.ProxyOn;
@@ -48,11 +47,6 @@ namespace Universal_Chevereto_Uploadr
             {
                 numericUpDown1.Value=0;
             }
-        }
-
-        private void checkBox6_CheckedChanged(object sender, EventArgs e)
-        {
-            Sets.AutoUpdateCheck=checkBox6.Checked;
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)

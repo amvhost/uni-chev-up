@@ -234,7 +234,7 @@ namespace Universal_Chevereto_Uploadr
         public void uploadedPhotosToolStripMenuItem_Click (object sender, EventArgs e)
         {
         	//show hostory
-            Program.checker.ClearMenu ();
+            //Program.checker.ClearMenu ();
         	Program.ReadHistory ();
         	Program.HistoryForm=new History (true);
         	Program.HistoryForm.ShowDialog ();
