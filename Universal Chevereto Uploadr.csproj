@@ -210,7 +210,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Universal Chevereto Uploadr.cd" />
     <None Include="dll\Upload.png" />
     <None Include="dll\favicon.ico" />
     <None Include="dll\uploadicon.ico" />

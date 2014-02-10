@@ -49,7 +49,6 @@ namespace Universal_Chevereto_Uploadr
         	this.label3 = new System.Windows.Forms.Label();
         	this.label4 = new System.Windows.Forms.Label();
         	this.label5 = new System.Windows.Forms.Label();
-        	this.linkLabel1 = new System.Windows.Forms.LinkLabel();
         	this.SuspendLayout();
         	// 
         	// labelProductName
@@ -70,7 +69,7 @@ namespace Universal_Chevereto_Uploadr
         	this.labelCopyright.Name = "labelCopyright";
         	this.labelCopyright.Size = new System.Drawing.Size(239, 21);
         	this.labelCopyright.TabIndex = 23;
-        	this.labelCopyright.Text = "(c) 2013 Dobrescu Andrei";
+        	this.labelCopyright.Text = "(c) 2013-2014 Dobrescu Andrei";
         	this.labelCopyright.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
         	// 
         	// labelCompanyName
@@ -91,7 +90,7 @@ namespace Universal_Chevereto_Uploadr
         	this.label1.Name = "label1";
         	this.label1.Size = new System.Drawing.Size(239, 17);
         	this.label1.TabIndex = 27;
-        	this.label1.Text = "Chevereto Universal Uploadr v1.2";
+        	this.label1.Text = "Chevereto Universal Uploadr v1.21";
         	this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
         	// 
         	// linkLabel3
@@ -147,21 +146,11 @@ namespace Universal_Chevereto_Uploadr
         	this.label5.TabIndex = 35;
         	this.label5.Text = resources.GetString("label5.Text");
         	// 
-        	// linkLabel1
-        	// 
-        	this.linkLabel1.Location = new System.Drawing.Point(16, 296);
-        	this.linkLabel1.Name = "linkLabel1";
-        	this.linkLabel1.Size = new System.Drawing.Size(156, 13);
-        	this.linkLabel1.TabIndex = 36;
-        	this.linkLabel1.TabStop = true;
-        	this.linkLabel1.Text = "chevup@hsk.p.ht";
-        	// 
         	// AboutBox
         	// 
         	this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
         	this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
         	this.ClientSize = new System.Drawing.Size(267, 319);
-        	this.Controls.Add(this.linkLabel1);
         	this.Controls.Add(this.label5);
         	this.Controls.Add(this.label4);
         	this.Controls.Add(this.label3);
@@ -186,7 +175,6 @@ namespace Universal_Chevereto_Uploadr
         	this.ResumeLayout(false);
         	this.PerformLayout();
         }
-        private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;

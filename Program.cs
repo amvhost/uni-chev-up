@@ -30,12 +30,19 @@ namespace Universal_Chevereto_Uploadr
         public static History HistoryForm;
         public static MainClass MainClassInstance;
         public static Checker checker;
+        public static string AppPath;
 
         [STAThread]
         static void Main ()
         {
             Application.EnableVisualStyles ();
             Application.SetCompatibleTextRenderingDefault (false);
+            //get the folder where the exe is located
+            {
+            	string [] eps=Application.ExecutablePath.Split ("\\".ToCharArray ());
+            	AppPath="";
+            	for (int i=0; i<eps.Length-1; i++) AppPath+=eps[i]+"\\";
+            }
             //here we read app's settings, configuration (api key, url) and history
             Sets.ReadSets ();
             ReadConfig ();
@@ -64,13 +71,13 @@ namespace Universal_Chevereto_Uploadr
         	/* this function reads the content of history.xml, which contains the links
         	 * to the photos you have uploaded in the past.*/
             History=new List <UploadedPhoto> ();
-            if (File.Exists (".\\history.xml")==false)
+            if (File.Exists (AppPath+"history.xml")==false)
             {
-                StreamWriter sw=new StreamWriter (".\\history.xml");
+                StreamWriter sw=new StreamWriter (AppPath+"history.xml");
                 sw.WriteLine ("<xml><nr-of-files>0</nr-of-files><files></files></xml>");
                 sw.Close ();
             }
-            XmlTextReader reader=new XmlTextReader (".\\history.xml");
+            XmlTextReader reader=new XmlTextReader (AppPath+"history.xml");
             int n=0;
             string ReadedNode="";
             UploadedPhoto aux=new UploadedPhoto ();
@@ -112,7 +119,7 @@ namespace Universal_Chevereto_Uploadr
         public static void WriteHistory ()
         {
         	/* this funtion writes the content of history.xml with the content of the history list*/
-        	StreamWriter sw=new StreamWriter (".\\history.xml");
+        	StreamWriter sw=new StreamWriter (AppPath+"history.xml");
         	sw.WriteLine ("<xml><nr-of-files>"+History.Count.ToString ());
         	sw.WriteLine ("</nr-of-files><files>");
         	foreach (UploadedPhoto p in History)
@@ -145,13 +152,13 @@ namespace Universal_Chevereto_Uploadr
         public static void ReadConfig ()
         {
         	//read config
-            if (File.Exists (".\\config.ini")==false)
+            if (File.Exists (AppPath+"config.ini")==false)
             {
             	MessageBox.Show ("config.ini file do not exist");
             	Application.Exit ();
             }
             //remember to set your url to api and the api key in config.ini!
-            Ini i=new Ini (".\\config.ini");
+            Ini i=new Ini (AppPath+"config.ini");
             Url=i.IniRead ("Api", "Url");
             Key=i.IniRead ("Api", "Key");
         }
