@@ -112,13 +112,13 @@ namespace Universal_Chevereto_Uploadr
         
         private void RefreshHotKeySettingsPanel ()
         {
-        	HotkeyData hkd=(HotkeyData)Hotkeys.ActiveHotkeys[SelectedHotkey];
+        	HotkeyData hkd=(HotkeyData)Hotkeys.hHotkeys[SelectedHotkey];
         	if (hkd.IsActive)
         	{
         		checkBox4.Checked=true;
         		button1.Visible=true;
         		if (hkd.Hotkey==null) button1.Text="(Press to assign hotkey)";
-        		else button1.Text=hkd.Hotkey.ToString ();
+        		else button1.Text=HKeySelector.ParseKey (hkd.Hotkey.ToString ());
         	}
         	else
         	{
@@ -144,17 +144,17 @@ namespace Universal_Chevereto_Uploadr
         {
         	if (checkBox4.Checked)
         	{
-        		HotkeyData hkd=(HotkeyData)Hotkeys.ActiveHotkeys[SelectedHotkey];
+        		HotkeyData hkd=(HotkeyData)Hotkeys.hHotkeys[SelectedHotkey];
         		hkd.IsActive=true;
-        		Hotkeys.ActiveHotkeys[SelectedHotkey]=(object)hkd;
+        		Hotkeys.hHotkeys[SelectedHotkey]=(object)hkd;
 				button1.Visible=true;
         	}
         	else
         	{
-        		HotkeyData hkd=(HotkeyData)Hotkeys.ActiveHotkeys[SelectedHotkey];
+        		HotkeyData hkd=(HotkeyData)Hotkeys.hHotkeys[SelectedHotkey];
         		hkd.IsActive=false;
         		hkd.Hotkey=Keys.None;
-        		Hotkeys.ActiveHotkeys[SelectedHotkey]=(object)hkd;
+        		Hotkeys.hHotkeys[SelectedHotkey]=(object)hkd;
         		button1.Visible=false;
         	}
         	Hotkeys.WriteHotkeySetting (SelectedHotkey);
@@ -165,11 +165,16 @@ namespace Universal_Chevereto_Uploadr
         	HKeySelector hks=new HKeySelector (SelectedHotkey, this.Location);
         	if (hks.ShowDialog ()==DialogResult.OK)
         	{
-        		button1.Text=hks.output.ToString ();
-        		HotkeyData hkd=(HotkeyData)Hotkeys.ActiveHotkeys[SelectedHotkey];
+        		button1.Text=HKeySelector.ParseKey (hks.output.ToString ());
+        		HotkeyData hkd=(HotkeyData)Hotkeys.hHotkeys[SelectedHotkey];
         		hkd.Hotkey=hks.output;
         		Hotkeys.WriteHotkeySetting (SelectedHotkey);
         	}
+        }
+        
+        void LinkLabel1LinkClicked (object sender, LinkLabelLinkClickedEventArgs e)
+        {
+        	Program.ApplicationRestart ();
         }
     }
 }
