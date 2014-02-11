@@ -54,11 +54,10 @@ namespace Universal_Chevereto_Uploadr
             	AppPath="";
             	for (int i=0; i<eps.Length-1; i++) AppPath+=eps[i]+"\\";
             }
-            //here we read app's settings, configuration (api key, url) and history
+            //read app's settings, configuration (api key, url) and history
             Sets.ReadSets ();
             ReadConfig ();
             ReadHistory ();
-			Hotkeys.ReadHotkeySettings ();
             //a strange bug's fix
             if (Sets.Bug563Fix) Sets.Bug563Fix=false;
             else
@@ -74,6 +73,8 @@ namespace Universal_Chevereto_Uploadr
             MainClassInstance.Wins[1]=MainClassInstance.Wins[0];
             MainClassInstance.Wins[2]=MainClassInstance.Wins[1];
 			InitAppFunctionalities ();
+			Hotkeys.ReadHotkeySettings ();
+			Hotkeys.RegisterHotkeys ();
             //initializing the formless notify icon and its menu
             checker=new Checker ();
             Application.Run ();

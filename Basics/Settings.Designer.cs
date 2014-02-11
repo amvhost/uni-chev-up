@@ -56,6 +56,8 @@ namespace Universal_Chevereto_Uploadr
         	this.label4 = new System.Windows.Forms.Label();
         	this.tabPage2 = new System.Windows.Forms.TabPage();
         	this.label3 = new System.Windows.Forms.Label();
+        	this.label5 = new System.Windows.Forms.Label();
+        	this.linkLabel1 = new System.Windows.Forms.LinkLabel();
         	((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
         	this.tabControl1.SuspendLayout();
         	this.tabPage1.SuspendLayout();
@@ -66,7 +68,7 @@ namespace Universal_Chevereto_Uploadr
         	// checkBox7
         	// 
         	this.checkBox7.AutoSize = true;
-        	this.checkBox7.Location = new System.Drawing.Point(6, 6);
+        	this.checkBox7.Location = new System.Drawing.Point(3, 15);
         	this.checkBox7.Name = "checkBox7";
         	this.checkBox7.Size = new System.Drawing.Size(322, 17);
         	this.checkBox7.TabIndex = 5;
@@ -76,7 +78,7 @@ namespace Universal_Chevereto_Uploadr
         	// 
         	// numericUpDown1
         	// 
-        	this.numericUpDown1.Location = new System.Drawing.Point(64, 68);
+        	this.numericUpDown1.Location = new System.Drawing.Point(61, 77);
         	this.numericUpDown1.Maximum = new decimal(new int[] {
         	        	        	10000,
         	        	        	0,
@@ -89,7 +91,7 @@ namespace Universal_Chevereto_Uploadr
         	// 
         	// textBox1
         	// 
-        	this.textBox1.Location = new System.Drawing.Point(64, 42);
+        	this.textBox1.Location = new System.Drawing.Point(61, 51);
         	this.textBox1.Name = "textBox1";
         	this.textBox1.Size = new System.Drawing.Size(99, 20);
         	this.textBox1.TabIndex = 6;
@@ -98,7 +100,7 @@ namespace Universal_Chevereto_Uploadr
         	// label2
         	// 
         	this.label2.AutoSize = true;
-        	this.label2.Location = new System.Drawing.Point(8, 70);
+        	this.label2.Location = new System.Drawing.Point(5, 79);
         	this.label2.Name = "label2";
         	this.label2.Size = new System.Drawing.Size(29, 13);
         	this.label2.TabIndex = 2;
@@ -107,7 +109,7 @@ namespace Universal_Chevereto_Uploadr
         	// label1
         	// 
         	this.label1.AutoSize = true;
-        	this.label1.Location = new System.Drawing.Point(6, 45);
+        	this.label1.Location = new System.Drawing.Point(3, 54);
         	this.label1.Name = "label1";
         	this.label1.Size = new System.Drawing.Size(42, 13);
         	this.label1.TabIndex = 1;
@@ -141,7 +143,7 @@ namespace Universal_Chevereto_Uploadr
         	// checkBox3
         	// 
         	this.checkBox3.AutoSize = true;
-        	this.checkBox3.Location = new System.Drawing.Point(6, 52);
+        	this.checkBox3.Location = new System.Drawing.Point(6, 64);
         	this.checkBox3.Name = "checkBox3";
         	this.checkBox3.Size = new System.Drawing.Size(111, 17);
         	this.checkBox3.TabIndex = 5;
@@ -152,7 +154,7 @@ namespace Universal_Chevereto_Uploadr
         	// checkBox1
         	// 
         	this.checkBox1.AutoSize = true;
-        	this.checkBox1.Location = new System.Drawing.Point(6, 6);
+        	this.checkBox1.Location = new System.Drawing.Point(6, 18);
         	this.checkBox1.Name = "checkBox1";
         	this.checkBox1.Size = new System.Drawing.Size(200, 17);
         	this.checkBox1.TabIndex = 0;
@@ -163,7 +165,7 @@ namespace Universal_Chevereto_Uploadr
         	// checkBox2
         	// 
         	this.checkBox2.AutoSize = true;
-        	this.checkBox2.Location = new System.Drawing.Point(6, 29);
+        	this.checkBox2.Location = new System.Drawing.Point(6, 41);
         	this.checkBox2.Name = "checkBox2";
         	this.checkBox2.Size = new System.Drawing.Size(166, 17);
         	this.checkBox2.TabIndex = 4;
@@ -174,6 +176,8 @@ namespace Universal_Chevereto_Uploadr
         	// tabPage3
         	// 
         	this.tabPage3.BackColor = System.Drawing.SystemColors.Control;
+        	this.tabPage3.Controls.Add(this.linkLabel1);
+        	this.tabPage3.Controls.Add(this.label5);
         	this.tabPage3.Controls.Add(this.button1);
         	this.tabPage3.Controls.Add(this.checkBox4);
         	this.tabPage3.Controls.Add(this.comboBox1);
@@ -187,7 +191,7 @@ namespace Universal_Chevereto_Uploadr
         	// 
         	// button1
         	// 
-        	this.button1.Location = new System.Drawing.Point(8, 92);
+        	this.button1.Location = new System.Drawing.Point(8, 91);
         	this.button1.Name = "button1";
         	this.button1.Size = new System.Drawing.Size(193, 23);
         	this.button1.TabIndex = 4;
@@ -197,7 +201,7 @@ namespace Universal_Chevereto_Uploadr
         	// 
         	// checkBox4
         	// 
-        	this.checkBox4.Location = new System.Drawing.Point(8, 62);
+        	this.checkBox4.Location = new System.Drawing.Point(8, 61);
         	this.checkBox4.Name = "checkBox4";
         	this.checkBox4.Size = new System.Drawing.Size(104, 24);
         	this.checkBox4.TabIndex = 2;
@@ -209,7 +213,7 @@ namespace Universal_Chevereto_Uploadr
         	// 
         	this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
         	this.comboBox1.FormattingEnabled = true;
-        	this.comboBox1.Location = new System.Drawing.Point(8, 35);
+        	this.comboBox1.Location = new System.Drawing.Point(8, 34);
         	this.comboBox1.Name = "comboBox1";
         	this.comboBox1.Size = new System.Drawing.Size(193, 21);
         	this.comboBox1.TabIndex = 1;
@@ -217,7 +221,7 @@ namespace Universal_Chevereto_Uploadr
         	// 
         	// label4
         	// 
-        	this.label4.Location = new System.Drawing.Point(8, 14);
+        	this.label4.Location = new System.Drawing.Point(8, 13);
         	this.label4.Name = "label4";
         	this.label4.Size = new System.Drawing.Size(88, 18);
         	this.label4.TabIndex = 0;
@@ -242,11 +246,30 @@ namespace Universal_Chevereto_Uploadr
         	// label3
         	// 
         	this.label3.AutoSize = true;
-        	this.label3.Location = new System.Drawing.Point(6, 26);
+        	this.label3.Location = new System.Drawing.Point(3, 35);
         	this.label3.Name = "label3";
         	this.label3.Size = new System.Drawing.Size(109, 13);
         	this.label3.TabIndex = 8;
         	this.label3.Text = "Set here server\'s info:";
+        	// 
+        	// label5
+        	// 
+        	this.label5.Location = new System.Drawing.Point(8, 139);
+        	this.label5.Name = "label5";
+        	this.label5.Size = new System.Drawing.Size(328, 29);
+        	this.label5.TabIndex = 5;
+        	this.label5.Text = "In order to apply any changes made to theese settings, the program needs to be re" +
+        	"started. Click          to restart uni-chev-up";
+        	// 
+        	// linkLabel1
+        	// 
+        	this.linkLabel1.Location = new System.Drawing.Point(139, 152);
+        	this.linkLabel1.Name = "linkLabel1";
+        	this.linkLabel1.Size = new System.Drawing.Size(28, 15);
+        	this.linkLabel1.TabIndex = 6;
+        	this.linkLabel1.TabStop = true;
+        	this.linkLabel1.Text = "here";
+        	this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabel1LinkClicked);
         	// 
         	// Settings
         	// 
@@ -266,6 +289,8 @@ namespace Universal_Chevereto_Uploadr
         	this.tabPage2.PerformLayout();
         	this.ResumeLayout(false);
         }
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.CheckBox checkBox4;
         private System.Windows.Forms.Label label4;

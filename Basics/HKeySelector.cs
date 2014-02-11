@@ -57,10 +57,5 @@ namespace Universal_Chevereto_Uploadr
 			r+=ss[0];
 			return r;
 		}
-		
-		void HKeySelectorKeyUp(object sender, KeyEventArgs e)
-		{
-			
-		}
 	}
 }

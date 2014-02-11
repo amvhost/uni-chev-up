@@ -148,6 +148,7 @@
     </Compile>
     <Compile Include="Misc\Checker.cs" />
     <Compile Include="Misc\Ini.cs" />
+    <Compile Include="Misc\KeyboardHook.cs" />
     <Compile Include="Misc\Request.cs" />
     <Compile Include="Misc\Sets.cs" />
     <Compile Include="Program.cs" />

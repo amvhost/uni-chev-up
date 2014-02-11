@@ -16,15 +16,7 @@ using System.Threading;
 using System.Windows.Forms;
 using System.Diagnostics;
 
-/* This class is taken from http://www.codeproject.com/Articles/18507/Formless-Notify-Icon-Application
- * Author's quote:
-"This class creates the notification icon that dotnet 2.0 offers.
-It will be displaying the status of the application with appropiate icons.
-It will have a contextmenu that enables the user to open the form or exit the application.
-The form could be used to change settings of the app which in turn are saved in the app.config or some other file.
-This formless, useless, notification sample does only chane the icon and balloontext.
-NOTE:Chacker is a Singleton class so it will only allow to be instantiated once, and therefore only one instance.
-I have done this to prevent more then one icon on the tray and to share data with the form (if any)*/
+//this class is taked from http://www.codeproject.com/Articles/18507/Formless-Notify-Icon-Application
 
 namespace Universal_Chevereto_Uploadr
 {
@@ -40,7 +32,7 @@ namespace Universal_Chevereto_Uploadr
             for (int i=0; i<Program.AppFunctionalities.Count; i++)
             {
             	var functionality=Program.AppFunctionalities[i];
-            	HotkeyData hotkey=(HotkeyData)Hotkeys.ActiveHotkeys[i];
+            	HotkeyData hotkey=(HotkeyData)Hotkeys.hHotkeys[i];
             	string msg=functionality.Key;
             	if (hotkey.IsActive==true&&hotkey.Hotkey!=Keys.None)
             		msg+="\t\t\t\t\t["+HKeySelector.ParseKey (hotkey.Hotkey.ToString ())+"]";
