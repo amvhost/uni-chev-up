@@ -37,9 +37,14 @@ namespace Universal_Chevereto_Uploadr
         {
         	//build the main menu
             contextmenu.MenuItems.Clear ();
-			foreach (var functionality in Program.AppFunctionalities)
-			{
-            	MenuItem item=new MenuItem (functionality.Key, functionality.Value);
+            for (int i=0; i<Program.AppFunctionalities.Count; i++)
+            {
+            	var functionality=Program.AppFunctionalities[i];
+            	HotkeyData hotkey=(HotkeyData)Hotkeys.ActiveHotkeys[i];
+            	string msg=functionality.Key;
+            	if (hotkey.IsActive==true&&hotkey.Hotkey!=Keys.None)
+            		msg+="\t\t\t\t\t["+HKeySelector.ParseKey (hotkey.Hotkey.ToString ())+"]";
+            	MenuItem item=new MenuItem (msg, functionality.Value);
             	contextmenu.MenuItems.Add (item);
 			}
             //and set the icon of the NotifyIcon control

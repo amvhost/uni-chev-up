@@ -24,6 +24,8 @@ namespace Universal_Chevereto_Uploadr
 	//class dealing with app's settings
     public partial class Settings : Form
     {
+    	private int SelectedHotkey;
+    	
         public Settings ()
         {
             InitializeComponent ();
@@ -38,6 +40,11 @@ namespace Universal_Chevereto_Uploadr
             numericUpDown1.Enabled=Sets.ProxyOn;
             textBox1.Text=Sets.ProxyServer;
             checkBox3.Checked=Sets.SaveScreenshots;
+            for (int i=0; i<Program.AppFunctionalities.Count; i++)
+            	comboBox1.Items.Add (Program.AppFunctionalities[i].Key);
+            comboBox1.Text=Program.AppFunctionalities[0].Key;
+            SelectedHotkey=0;
+            RefreshHotKeySettingsPanel ();
             this.FormClosing+=delegate {Program.checker.BuildContextMenu ();};
             try
             {
@@ -101,6 +108,68 @@ namespace Universal_Chevereto_Uploadr
         private void checkBox3_CheckedChanged_1 (object sender, EventArgs e)
         {
             Sets.SaveScreenshots=checkBox3.Checked;
+        }
+        
+        private void RefreshHotKeySettingsPanel ()
+        {
+        	HotkeyData hkd=(HotkeyData)Hotkeys.ActiveHotkeys[SelectedHotkey];
+        	if (hkd.IsActive)
+        	{
+        		checkBox4.Checked=true;
+        		button1.Visible=true;
+        		if (hkd.Hotkey==null) button1.Text="(Press to assign hotkey)";
+        		else button1.Text=hkd.Hotkey.ToString ();
+        	}
+        	else
+        	{
+        		checkBox4.Checked=false;
+        		button1.Visible=false;
+        	}
+        }
+        
+        void ComboBox1SelectedIndexChanged(object sender, EventArgs e)
+        {
+        	for (int i=0; i<Program.AppFunctionalities.Count; i++)
+        	{
+        		if (Program.AppFunctionalities[i].Key==comboBox1.Text)
+        		{
+        			SelectedHotkey=i;
+        			break;
+        		}
+        	}
+        	RefreshHotKeySettingsPanel ();
+        }
+        
+        void CheckBox4CheckedChanged(object sender, EventArgs e)
+        {
+        	if (checkBox4.Checked)
+        	{
+        		HotkeyData hkd=(HotkeyData)Hotkeys.ActiveHotkeys[SelectedHotkey];
+        		hkd.IsActive=true;
+        		Hotkeys.ActiveHotkeys[SelectedHotkey]=(object)hkd;
+				button1.Visible=true;
+        	}
+        	else
+        	{
+        		HotkeyData hkd=(HotkeyData)Hotkeys.ActiveHotkeys[SelectedHotkey];
+        		hkd.IsActive=false;
+        		hkd.Hotkey=Keys.None;
+        		Hotkeys.ActiveHotkeys[SelectedHotkey]=(object)hkd;
+        		button1.Visible=false;
+        	}
+        	Hotkeys.WriteHotkeySetting (SelectedHotkey);
+        }
+        
+        void Button1Click (object sender, EventArgs e)
+        {
+        	HKeySelector hks=new HKeySelector (SelectedHotkey, this.Location);
+        	if (hks.ShowDialog ()==DialogResult.OK)
+        	{
+        		button1.Text=hks.output.ToString ();
+        		HotkeyData hkd=(HotkeyData)Hotkeys.ActiveHotkeys[SelectedHotkey];
+        		hkd.Hotkey=hks.output;
+        		Hotkeys.WriteHotkeySetting (SelectedHotkey);
+        	}
         }
     }
 }

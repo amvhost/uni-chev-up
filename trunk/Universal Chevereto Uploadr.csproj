@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -116,6 +116,10 @@
     <Compile Include="Basics\DragDropFiles.Designer.cs">
       <DependentUpon>DragDropFiles.cs</DependentUpon>
     </Compile>
+    <Compile Include="Basics\HKeySelector.cs" />
+    <Compile Include="Basics\HKeySelector.Designer.cs">
+      <DependentUpon>HKeySelector.cs</DependentUpon>
+    </Compile>
     <Compile Include="Basics\MainClass.cs" />
     <Compile Include="Basics\Settings.cs">
       <SubType>Form</SubType>
@@ -160,6 +164,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Basics\DragDropFiles.resx">
       <DependentUpon>DragDropFiles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Basics\HKeySelector.resx">
+      <DependentUpon>HKeySelector.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Basics\Settings.resx">
       <DependentUpon>Settings.cs</DependentUpon>

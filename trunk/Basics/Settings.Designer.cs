@@ -49,11 +49,17 @@ namespace Universal_Chevereto_Uploadr
         	this.checkBox3 = new System.Windows.Forms.CheckBox();
         	this.checkBox1 = new System.Windows.Forms.CheckBox();
         	this.checkBox2 = new System.Windows.Forms.CheckBox();
+        	this.tabPage3 = new System.Windows.Forms.TabPage();
+        	this.button1 = new System.Windows.Forms.Button();
+        	this.checkBox4 = new System.Windows.Forms.CheckBox();
+        	this.comboBox1 = new System.Windows.Forms.ComboBox();
+        	this.label4 = new System.Windows.Forms.Label();
         	this.tabPage2 = new System.Windows.Forms.TabPage();
         	this.label3 = new System.Windows.Forms.Label();
         	((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
         	this.tabControl1.SuspendLayout();
         	this.tabPage1.SuspendLayout();
+        	this.tabPage3.SuspendLayout();
         	this.tabPage2.SuspendLayout();
         	this.SuspendLayout();
         	// 
@@ -110,6 +116,7 @@ namespace Universal_Chevereto_Uploadr
         	// tabControl1
         	// 
         	this.tabControl1.Controls.Add(this.tabPage1);
+        	this.tabControl1.Controls.Add(this.tabPage3);
         	this.tabControl1.Controls.Add(this.tabPage2);
         	this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
         	this.tabControl1.Location = new System.Drawing.Point(0, 0);
@@ -164,6 +171,58 @@ namespace Universal_Chevereto_Uploadr
         	this.checkBox2.UseVisualStyleBackColor = true;
         	this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
         	// 
+        	// tabPage3
+        	// 
+        	this.tabPage3.BackColor = System.Drawing.SystemColors.Control;
+        	this.tabPage3.Controls.Add(this.button1);
+        	this.tabPage3.Controls.Add(this.checkBox4);
+        	this.tabPage3.Controls.Add(this.comboBox1);
+        	this.tabPage3.Controls.Add(this.label4);
+        	this.tabPage3.Location = new System.Drawing.Point(4, 22);
+        	this.tabPage3.Name = "tabPage3";
+        	this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+        	this.tabPage3.Size = new System.Drawing.Size(344, 173);
+        	this.tabPage3.TabIndex = 2;
+        	this.tabPage3.Text = "Hotkeys";
+        	// 
+        	// button1
+        	// 
+        	this.button1.Location = new System.Drawing.Point(8, 92);
+        	this.button1.Name = "button1";
+        	this.button1.Size = new System.Drawing.Size(193, 23);
+        	this.button1.TabIndex = 4;
+        	this.button1.Text = "(Press to assign hotkey)";
+        	this.button1.UseVisualStyleBackColor = true;
+        	this.button1.Click += new System.EventHandler(this.Button1Click);
+        	// 
+        	// checkBox4
+        	// 
+        	this.checkBox4.Location = new System.Drawing.Point(8, 62);
+        	this.checkBox4.Name = "checkBox4";
+        	this.checkBox4.Size = new System.Drawing.Size(104, 24);
+        	this.checkBox4.TabIndex = 2;
+        	this.checkBox4.Text = "Hotkey on";
+        	this.checkBox4.UseVisualStyleBackColor = true;
+        	this.checkBox4.CheckedChanged += new System.EventHandler(this.CheckBox4CheckedChanged);
+        	// 
+        	// comboBox1
+        	// 
+        	this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+        	this.comboBox1.FormattingEnabled = true;
+        	this.comboBox1.Location = new System.Drawing.Point(8, 35);
+        	this.comboBox1.Name = "comboBox1";
+        	this.comboBox1.Size = new System.Drawing.Size(193, 21);
+        	this.comboBox1.TabIndex = 1;
+        	this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.ComboBox1SelectedIndexChanged);
+        	// 
+        	// label4
+        	// 
+        	this.label4.Location = new System.Drawing.Point(8, 14);
+        	this.label4.Name = "label4";
+        	this.label4.Size = new System.Drawing.Size(88, 18);
+        	this.label4.TabIndex = 0;
+        	this.label4.Text = "App function:";
+        	// 
         	// tabPage2
         	// 
         	this.tabPage2.BackColor = System.Drawing.SystemColors.Control;
@@ -202,10 +261,16 @@ namespace Universal_Chevereto_Uploadr
         	this.tabControl1.ResumeLayout(false);
         	this.tabPage1.ResumeLayout(false);
         	this.tabPage1.PerformLayout();
+        	this.tabPage3.ResumeLayout(false);
         	this.tabPage2.ResumeLayout(false);
         	this.tabPage2.PerformLayout();
         	this.ResumeLayout(false);
         }
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.CheckBox checkBox4;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TabPage tabPage3;
 
         #endregion
 
