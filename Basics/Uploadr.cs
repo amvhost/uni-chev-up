@@ -18,7 +18,7 @@ using System.Threading;
 
 namespace Universal_Chevereto_Uploadr
 {
-	//this class is probably the most important class of all program,
+	//this class contains the core functionality of the program,
 	//dealing with the photo uploading
     public static class Uploadr
     {
