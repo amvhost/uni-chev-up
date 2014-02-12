@@ -90,7 +90,7 @@ namespace Universal_Chevereto_Uploadr
         	this.label1.Name = "label1";
         	this.label1.Size = new System.Drawing.Size(239, 17);
         	this.label1.TabIndex = 27;
-        	this.label1.Text = "Chevereto Universal Uploadr v1.21";
+        	this.label1.Text = "Universal Chevereto Uploadr v1.22";
         	this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
         	// 
         	// linkLabel3

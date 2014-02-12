@@ -1,5 +1,5 @@
 ﻿/*
-* Copyright (c) 2013 Dobrescu Andrei
+* Copyright (c) 2013-2014 Dobrescu Andrei
 * 
 * This file is part of Universal Chevereto Uploadr.
 * Universal Chevereto Uploadr is a free software: you can redistribute it and/or modify it under the terms of the GNU General Public License
@@ -21,7 +21,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration ("x86-64")]
 [assembly: AssemblyCompany ("Dobrescu Andrei")]
 [assembly: AssemblyProduct ("Universal Chevereto Uploadr")]
-[assembly: AssemblyCopyright("(c) 2013 Dobrescu Andrei, licensed under the GNU GPL v3")]
+[assembly: AssemblyCopyright("(c) 2013-2014 Dobrescu Andrei, licensed under the GNU GPL v3")]
 [assembly: AssemblyTrademark ("")]
 [assembly: AssemblyCulture ("")]
 
@@ -43,5 +43,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion ("1.0.*")]
-[assembly: AssemblyVersion ("1.2.1.0")]
-[assembly: AssemblyFileVersion ("1.2.1.0")]
+[assembly: AssemblyVersion ("1.2.2.0")]
+[assembly: AssemblyFileVersion ("1.2.2.0")]

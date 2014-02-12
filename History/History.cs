@@ -1,5 +1,5 @@
 ﻿/*
-* Copyright (c) 2013 Dobrescu Andrei
+* Copyright (c) 2013-2014 Dobrescu Andrei
 * 
 * This file is part of Universal Chevereto Uploadr.
 * Universal Chevereto Uploadr is a free software: you can redistribute it and/or modify it under the terms of the GNU General Public License
@@ -23,12 +23,15 @@ namespace Universal_Chevereto_Uploadr
 	//"History" form
     public partial class History : Form
     {
+    	public bool IsShowed;	
+    	
         public History (bool All)
         {
             InitializeComponent ();
             PopulateList (All);
             listView1.MultiSelect=false;
             listView1.DoubleClick+=new EventHandler (listView1_DoubleClick);
+            this.IsShowed=false;
             this.ShowInTaskbar=true;
             this.Icon=Properties.Resources.favicon;
             if (All) comboBox1.SelectedItem=comboBox1.Items[0];

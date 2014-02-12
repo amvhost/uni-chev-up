@@ -1,5 +1,5 @@
 ﻿/*
-* Copyright (c) 2013 Dobrescu Andrei
+* Copyright (c) 2013-2014 Dobrescu Andrei
 * 
 * This file is part of Universal Chevereto Uploadr.
 * Universal Chevereto Uploadr is a free software: you can redistribute it and/or modify it under the terms of the GNU General Public License
@@ -31,7 +31,7 @@ namespace Universal_Chevereto_Uploadr
         {
             InitializeComponent ();
             this.Location=new Point (Screen.PrimaryScreen.Bounds.Width-this.Width-5, Screen.PrimaryScreen.Bounds.Height-this.Height-40);
-            this.TopMost=false;
+            this.TopMost=true;
             this.ShowInTaskbar=true;
             this.Icon=Properties.Resources.favicon;
             Items=new List <KeyValuePair <string, string>> ();

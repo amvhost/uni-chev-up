@@ -1,5 +1,5 @@
 ﻿/*
-* Copyright (c) 2013 Dobrescu Andrei
+* Copyright (c) 2013-2014 Dobrescu Andrei
 * 
 * This file is part of Universal Chevereto Uploadr.
 * Universal Chevereto Uploadr is a free software: you can redistribute it and/or modify it under the terms of the GNU General Public License
@@ -49,15 +49,10 @@ namespace Universal_Chevereto_Uploadr
                 if (i==IntPtr.Zero) return;
                 if (i!=Wins[0])
                 {
-                	//I memorize 3 windows because:
-            		//Wins[2] is the "active" window, the window i want to screenshot, which
-            		//is no more so active, because, by selecting the notif icon and choosing
-            		//an item from the menu, I activate the Windows Desktop window then the
-            		//"virtual" window containing the context menu
+                	//I memorize 3 windows for the "Active window screenshot" feature
+            		//when launching the feature from the context menu, Wins[2] is the "active" window
                     Wins[2]=Wins[1];
-                    //Wins[1] is this app's window
                     Wins[1]=Wins[0];
-                    //Wins[0] is the Destop window
                     Wins[0]=i;
                 }
             };
@@ -234,10 +229,11 @@ namespace Universal_Chevereto_Uploadr
         public void uploadedPhotosToolStripMenuItem_Click (object sender, EventArgs e)
         {
         	//show hostory
-            //Program.checker.ClearMenu ();
         	Program.ReadHistory ();
-        	Program.HistoryForm=new History (true);
-        	Program.HistoryForm.ShowDialog ();
+        	//prevent user from opening history twice
+       		Program.HistoryForm=new History (true);
+       		Program.HistoryForm.ShowDialog ();
+       		Program.HistoryForm.IsShowed=true;
         }
 
         public void aboutToolStripMenuItem_Click (object sender, EventArgs e)
@@ -343,9 +339,14 @@ namespace Universal_Chevereto_Uploadr
 
         public void ScreenshotActiveWindow (object sender, EventArgs e)
         {
+        	ScreenshotWindow (Wins[2]);
+        }
+        
+        public void ScreenshotWindow (IntPtr window)
+        {
         	//get the window handle
             RECT r=new RECT ();
-            GetWindowRect (new HandleRef (this, Wins[2]), out r);
+            GetWindowRect (new HandleRef (this, window), out r);
             ResetArrays ();
             //screenshot
             Bitmap b=Screenshot ();
