@@ -87,9 +87,12 @@ namespace Universal_Chevereto_Uploadr
 								if (((HotkeyData)(hHotkeys[i])).Hook==ckh)
 								{
 									//bring this program to the front
-									if (Program.AppFunctionalities[i].Key!="Upload active window screenshot")
-										Program.AppFunctionalities[i].Value.Invoke (sender, (EventArgs)e);
-									else Program.MainClassInstance.ScreenshotWindow (Program.MainClassInstance.Wins[0]);
+									if (Checker.MenuState)
+									{
+										if (Program.AppFunctionalities[i].Key!="Upload active window screenshot")
+											Program.AppFunctionalities[i].Value.Invoke (sender, (EventArgs)e);
+										else Program.MainClassInstance.ScreenshotWindow (Program.MainClassInstance.Wins[0]);
+									}
 									break;
 								}
 							}

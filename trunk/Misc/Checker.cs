@@ -22,6 +22,7 @@ namespace Universal_Chevereto_Uploadr
 {
     public class Checker
     {
+    	public static bool MenuState;
         public NotifyIcon notify;
         public ContextMenu contextmenu=new ContextMenu ();
         
@@ -39,6 +40,7 @@ namespace Universal_Chevereto_Uploadr
             	MenuItem item=new MenuItem (msg, functionality.Value);
             	contextmenu.MenuItems.Add (item);
 			}
+            MenuState=true;
             //and set the icon of the NotifyIcon control
             try {notify.Icon=Properties.Resources.favicon;}
             catch {}
@@ -47,6 +49,7 @@ namespace Universal_Chevereto_Uploadr
         public void CancelTheUpload ()
         {
         	//if I choose to cancel...
+        	MenuState=false;
             contextmenu.MenuItems.Clear ();
             contextmenu.MenuItems.Add (new MenuItem ("Cancel the upload?", delegate
             {
