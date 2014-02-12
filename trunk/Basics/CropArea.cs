@@ -1,5 +1,5 @@
 ﻿/*
-* Copyright (c) 2013 Dobrescu Andrei
+* Copyright (c) 2013-2014 Dobrescu Andrei
 * 
 * This file is part of Universal Chevereto Uploadr.
 * Universal Chevereto Uploadr is a free software: you can redistribute it and/or modify it under the terms of the GNU General Public License
@@ -37,6 +37,7 @@ namespace Universal_Chevereto_Uploadr
             this.ShowInTaskbar=false;
             this.BackColor=Color.Black;
             this.Opacity=0.3;
+            this.TopMost=true;
             this.TransparencyKey=Color.Pink;
             this.KeyUp+= new KeyEventHandler (CropArea_KeyUp);
             this.MouseDown+=new MouseEventHandler (CropArea_MouseDown);

@@ -1,5 +1,5 @@
 ﻿/*
-* Copyright (c) 2013 Dobrescu Andrei
+* Copyright (c) 2013-2014 Dobrescu Andrei
 * 
 * This file is part of Universal Chevereto Uploadr.
 * Universal Chevereto Uploadr is a free software: you can redistribute it and/or modify it under the terms of the GNU General Public License
@@ -117,7 +117,7 @@ namespace Universal_Chevereto_Uploadr
         	{
         		checkBox4.Checked=true;
         		button1.Visible=true;
-        		if (hkd.Hotkey==null) button1.Text="(Press to assign hotkey)";
+        		if (hkd.Hotkey==Keys.None) button1.Text="(Press to assign hotkey)";
         		else button1.Text=HKeySelector.ParseKey (hkd.Hotkey.ToString ());
         	}
         	else
