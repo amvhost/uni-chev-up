@@ -47,6 +47,8 @@ namespace Universal_Chevereto_Uploadr
 			textBox6.Text="[url="+q.ShortUrl+"][img]"+q.Miniatura+"[/img][/url]";
 			label2.Text="Local name: "+q.LocalName;
 			label3.Text="Server name: "+q.ServerName;
+			this.VisibleChanged+=delegate {Program.IsHistoryFormShowed=true;};
+			this.FormClosing+=delegate {Program.IsHistoryFormShowed=true;};
         }
 
         private void groupBox1_Enter (object sender, EventArgs e)

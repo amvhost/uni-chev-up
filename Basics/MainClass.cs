@@ -231,9 +231,11 @@ namespace Universal_Chevereto_Uploadr
         	//show hostory
         	Program.ReadHistory ();
         	//prevent user from opening history twice
-       		Program.HistoryForm=new History (true);
-       		Program.HistoryForm.ShowDialog ();
-       		Program.HistoryForm.IsShowed=true;
+        	if (Program.IsHistoryFormShowed==false)
+        	{
+       			Program.HistoryForm=new History (true);
+       			Program.HistoryForm.ShowDialog ();
+        	}
         }
 
         public void aboutToolStripMenuItem_Click (object sender, EventArgs e)

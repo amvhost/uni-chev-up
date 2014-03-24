@@ -31,6 +31,7 @@ namespace Universal_Chevereto_Uploadr
         public static MainClass MainClassInstance;
         public static Checker checker;
         public static string AppPath;
+        public static bool IsHistoryFormShowed;
 		
 		/*store app's main features ' descriptions and events:
 		* the key=feature's description:
@@ -66,6 +67,7 @@ namespace Universal_Chevereto_Uploadr
                 if (p.Length>1) Process.GetCurrentProcess ().Kill ();
             }
             //some init
+            IsHistoryFormShowed=false;
             FilesToUpload=new List <string> ();
             MainClassInstance=new MainClass ();
             MainClassInstance.Wins=new IntPtr [3];
