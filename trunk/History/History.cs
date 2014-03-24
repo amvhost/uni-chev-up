@@ -23,15 +23,13 @@ namespace Universal_Chevereto_Uploadr
 	//"History" form
     public partial class History : Form
     {
-    	public bool IsShowed;	
-    	
         public History (bool All)
         {
             InitializeComponent ();
             PopulateList (All);
             listView1.MultiSelect=false;
             listView1.DoubleClick+=new EventHandler (listView1_DoubleClick);
-            this.IsShowed=false;
+            Program.IsHistoryFormShowed=true;
             this.ShowInTaskbar=true;
             this.Icon=Properties.Resources.favicon;
             if (All) comboBox1.SelectedItem=comboBox1.Items[0];
@@ -40,6 +38,8 @@ namespace Universal_Chevereto_Uploadr
             il.Images.Add (Properties.Resources.favicon);
             listView1.LargeImageList=il;
             //this.FormClosing+=delegate {Program.checker.BuildContextMenu ();};
+            this.FormClosing+=delegate {Program.IsHistoryFormShowed=false;};
+            this.VisibleChanged+=delegate {Program.IsHistoryFormShowed=this.Visible;};
         }
 
         void listView1_DoubleClick (object sender, EventArgs e)

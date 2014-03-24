@@ -50,14 +50,15 @@ namespace Universal_Chevereto_Uploadr
         	this.checkBox1 = new System.Windows.Forms.CheckBox();
         	this.checkBox2 = new System.Windows.Forms.CheckBox();
         	this.tabPage3 = new System.Windows.Forms.TabPage();
+        	this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+        	this.label5 = new System.Windows.Forms.Label();
         	this.button1 = new System.Windows.Forms.Button();
         	this.checkBox4 = new System.Windows.Forms.CheckBox();
         	this.comboBox1 = new System.Windows.Forms.ComboBox();
         	this.label4 = new System.Windows.Forms.Label();
         	this.tabPage2 = new System.Windows.Forms.TabPage();
         	this.label3 = new System.Windows.Forms.Label();
-        	this.label5 = new System.Windows.Forms.Label();
-        	this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+        	this.label6 = new System.Windows.Forms.Label();
         	((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
         	this.tabControl1.SuspendLayout();
         	this.tabPage1.SuspendLayout();
@@ -176,6 +177,7 @@ namespace Universal_Chevereto_Uploadr
         	// tabPage3
         	// 
         	this.tabPage3.BackColor = System.Drawing.SystemColors.Control;
+        	this.tabPage3.Controls.Add(this.label6);
         	this.tabPage3.Controls.Add(this.linkLabel1);
         	this.tabPage3.Controls.Add(this.label5);
         	this.tabPage3.Controls.Add(this.button1);
@@ -188,6 +190,25 @@ namespace Universal_Chevereto_Uploadr
         	this.tabPage3.Size = new System.Drawing.Size(344, 173);
         	this.tabPage3.TabIndex = 2;
         	this.tabPage3.Text = "Hotkeys";
+        	// 
+        	// linkLabel1
+        	// 
+        	this.linkLabel1.Location = new System.Drawing.Point(139, 152);
+        	this.linkLabel1.Name = "linkLabel1";
+        	this.linkLabel1.Size = new System.Drawing.Size(28, 15);
+        	this.linkLabel1.TabIndex = 6;
+        	this.linkLabel1.TabStop = true;
+        	this.linkLabel1.Text = "here";
+        	this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabel1LinkClicked);
+        	// 
+        	// label5
+        	// 
+        	this.label5.Location = new System.Drawing.Point(8, 139);
+        	this.label5.Name = "label5";
+        	this.label5.Size = new System.Drawing.Size(328, 29);
+        	this.label5.TabIndex = 5;
+        	this.label5.Text = "In order to apply any changes made to theese settings, the program needs to be re" +
+        	"started. Click          to restart uni-chev-up";
         	// 
         	// button1
         	// 
@@ -252,24 +273,13 @@ namespace Universal_Chevereto_Uploadr
         	this.label3.TabIndex = 8;
         	this.label3.Text = "Set here server\'s info:";
         	// 
-        	// label5
+        	// label6
         	// 
-        	this.label5.Location = new System.Drawing.Point(8, 139);
-        	this.label5.Name = "label5";
-        	this.label5.Size = new System.Drawing.Size(328, 29);
-        	this.label5.TabIndex = 5;
-        	this.label5.Text = "In order to apply any changes made to theese settings, the program needs to be re" +
-        	"started. Click          to restart uni-chev-up";
-        	// 
-        	// linkLabel1
-        	// 
-        	this.linkLabel1.Location = new System.Drawing.Point(139, 152);
-        	this.linkLabel1.Name = "linkLabel1";
-        	this.linkLabel1.Size = new System.Drawing.Size(28, 15);
-        	this.linkLabel1.TabIndex = 6;
-        	this.linkLabel1.TabStop = true;
-        	this.linkLabel1.Text = "here";
-        	this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabel1LinkClicked);
+        	this.label6.Location = new System.Drawing.Point(8, 121);
+        	this.label6.Name = "label6";
+        	this.label6.Size = new System.Drawing.Size(328, 18);
+        	this.label6.TabIndex = 7;
+        	this.label6.Text = "This feature probably won\'t work on Windows 7 or lower. :(";
         	// 
         	// Settings
         	// 
@@ -289,6 +299,7 @@ namespace Universal_Chevereto_Uploadr
         	this.tabPage2.PerformLayout();
         	this.ResumeLayout(false);
         }
+        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Button button1;
