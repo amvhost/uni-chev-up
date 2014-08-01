@@ -58,7 +58,10 @@ namespace Universal_Chevereto_Uploadr
             Program.checker.notify.ShowBalloonTip (1000);
             Program.checker.BuildContextMenu ();
             });
-            t.Start ();
+		    t.SetApartmentState(ApartmentState.STA); //Set the thread to STA
+		    t.Start(); 
+		    t.Join();
+		    if (Program.Chevereto3) return;
             //if the setting is on, copy the DirectUrl to the picture to the clipboard
             if (Sets.CopyAfterUpload)
             {
@@ -99,7 +102,7 @@ namespace Universal_Chevereto_Uploadr
             string []es=new string [1];
             string response="";
             es=file.Split ("\\".ToCharArray ());
-            response=Request.Post (Program.Url, "key="+Program.Key, file);
+            response=Request.Post (Program.Url, GetAPIArgs (), file);
             if (response=="{Retry}") Upload (file);
             else if (response=="{Ignore}") {return;}
             ParseResponse (response, es, file);
@@ -108,7 +111,7 @@ namespace Universal_Chevereto_Uploadr
         private static void Upload (byte []array)
         {
         	//upload byte array
-            string response=Request.Post (Program.Url, "key="+Program.Key, "null", array);
+            string response=Request.Post (Program.Url, GetAPIArgs (), "null", array);
             if (response=="{Retry}") Upload (array);
             else if (response=="{Ignore}") {return;}
             ParseResponse (response);
@@ -117,10 +120,16 @@ namespace Universal_Chevereto_Uploadr
         private static void Upload (Uri url)
         {
         	//upload url
-            string response=Request.Post (Program.Url, "key="+Program.Key, "null", null, url.ToString ());
+        	string response=Request.Post (Program.Url, GetAPIArgs (), "null", null, url.ToString ());
             if (response=="{Retry}") Upload (url);
             else if (response=="{Ignore}") {return;}
             ParseResponse (response);
+        }
+        
+        public static string GetAPIArgs ()
+        {
+        	if (Program.Chevereto3) return "?key="+Program.Key+"&format=json";
+        	return "key="+Program.Key;
         }
 
         private static void ParseResponse (string response, string []es=null, string file="null", byte []array=null)
@@ -151,28 +160,28 @@ namespace Universal_Chevereto_Uploadr
             if (es==null) up.LocalName="no local name";
             else up.LocalName=es[es.Length-1];
             {
-                string []p=response.Split (new string [] {"\"image_filename\":\"", "\","}, StringSplitOptions.None);
-                up.ServerName=ParseValue (p[3]);
+            	string []p=response.Split (new string [] {(Program.Chevereto3)?"\"filename\":\"":"\"image_filename\":\"", "\","}, StringSplitOptions.None);
+            	up.ServerName=ParseValue (p[(Program.Chevereto3)?12:3]);
             }
             {
-                string []p=response.Split (new string [] {"\"image_url\":", ","}, StringSplitOptions.None);
-                up.DirectLink=ParseValue (p[7]);
+            	string []p=response.Split (new string [] {(Program.Chevereto3)?"\"url\":":"\"image_url\":", ","}, StringSplitOptions.None);
+            	up.DirectLink=ParseValue (p[(Program.Chevereto3)?26:7]);
             }
             {
-                string []p=response.Split (new string [] {"\"image_thumb_url\":", ","}, StringSplitOptions.None);
-                up.Miniatura=ParseValue (p[13]);
+                string []p=response.Split (new string [] {(Program.Chevereto3)?"\"url\":":"\"image_thumb_url\":", ","}, StringSplitOptions.None);
+                up.Miniatura=ParseValue (p[(Program.Chevereto3)?40:13]);
             }
             {
-                string []p=response.Split (new string [] {"\"image_viewer\":", ","}, StringSplitOptions.None);
-                up.Viewer=ParseValue (p[20]);
+                string []p=response.Split (new string [] {(Program.Chevereto3)?"\"url_viewer\":":"\"image_viewer\":", ","}, StringSplitOptions.None);
+                up.Viewer=ParseValue (p[(Program.Chevereto3)?27:20]);
             }
             {
-                string []p=response.Split (new string [] {"\"image_shorturl\":", ","}, StringSplitOptions.None);
-                up.ShortUrl=ParseValue (p[21]);
+                string []p=response.Split (new string [] {(Program.Chevereto3)?"":"\"image_shorturl\":", ","}, StringSplitOptions.None);
+                up.ShortUrl=(Program.Chevereto3)?"":ParseValue (p[21]);
             }
             {
-                string []p=response.Split (new string [] {"\"image_delete_confirm_url\":", ","}, StringSplitOptions.None);
-                up.Delete=ParseValue (p[24]);
+                string []p=response.Split (new string [] {(Program.Chevereto3)?"":"\"image_delete_confirm_url\":", ","}, StringSplitOptions.None);
+                up.Delete=(Program.Chevereto3)?"":ParseValue (p[24]);
             }
             {
                 int idtofind=1;

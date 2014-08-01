@@ -27,6 +27,7 @@ namespace Universal_Chevereto_Uploadr
         public static List <string> FilesToUpload;
         public static List <UploadedPhoto> History;
         public static string Url, Key;
+        public static bool Chevereto3;
         public static History HistoryForm;
         public static MainClass MainClassInstance;
         public static Checker checker;
@@ -81,7 +82,7 @@ namespace Universal_Chevereto_Uploadr
             checker=new Checker ();
             Application.Run ();
         }
-
+        
         public static void ReadHistory ()
         {
         	/* this function reads the content of history.xml, which contains the links
@@ -173,10 +174,16 @@ namespace Universal_Chevereto_Uploadr
             	MessageBox.Show ("config.ini file do not exist");
             	Application.Exit ();
             }
-            //remember to set your url to api and the api key in config.ini!
-            Ini i=new Ini (AppPath+"config.ini");
-            Url=i.IniRead ("Api", "Url");
-            Key=i.IniRead ("Api", "Key");
+            else
+            {
+	            //remember to set your url to api and the api key in config.ini!
+	            Ini i=new Ini (AppPath+"config.ini");
+	            Url=i.IniRead ("Api", "Url");
+	            Key=i.IniRead ("Api", "Key");
+	            Chevereto3=false;
+	            string s=i.IniRead ("Api", "Ver3");
+	            if (s!=null&&s!="") Chevereto3=bool.Parse (s);
+            }
         }
 		
 		public static void InitAppFunctionalities ()

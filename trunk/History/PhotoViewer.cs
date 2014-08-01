@@ -49,6 +49,7 @@ namespace Universal_Chevereto_Uploadr
 			label3.Text="Server name: "+q.ServerName;
 			this.VisibleChanged+=delegate {Program.IsHistoryFormShowed=true;};
 			this.FormClosing+=delegate {Program.IsHistoryFormShowed=true;};
+			if (p.Delete==null) this.button2.Enabled=false;
         }
 
         private void groupBox1_Enter (object sender, EventArgs e)
