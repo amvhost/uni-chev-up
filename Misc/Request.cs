@@ -52,55 +52,81 @@ namespace Universal_Chevereto_Uploadr
         	 * * * file [optional]=the location of the file ou want to upload
         	 * * * OR btes [optional]=the bytes contained by a file/picture created in a memory stream
         	 * * * Upload a remote file with:
-        	 * * *urlupload [optional]=the url of the picture you want to upload*/
+        	 * * * urlupload [optional]=the url of the picture you want to upload*/
             try
             {
-                HttpWebRequest req=(HttpWebRequest)WebRequest.Create (url);
-                req.KeepAlive=false;
-                req.ProtocolVersion=HttpVersion.Version10;
-                req.Method="POST";
-                if (Sets.ProxyOn)
-                {
-                	//set proxy
-                    req.Proxy=new WebProxy (Sets.ProxyServer, Convert.ToInt32 (Sets.ProxyPort));
-                }
                 string arg=args;
                 //baza64s is the string that contains the url or byte array (converted to base64)
-                string baza64s="";
+                //string baza64s="";
                 if (file=="null"&&bytes!=null&&urlupload==null)
                 {
                 	//upload a byte array
+                	/*old method
                     baza64s=ToBase64 (bytes);
-                    arg+="&upload=";
+                    arg+="&upload=";*/
+                    arg+=BuildAnonymousUploadString (ToBase64 (bytes));
                 }
                 else if (file!="null"&&bytes==null&&urlupload==null)
                 {
                 	//upload a local file
                     byte[] filebytes=File.ReadAllBytes (file);
-                    baza64s=ToBase64 (filebytes);
-                    arg+="&upload=";
+                    /*baza64s=ToBase64 (filebytes);
+                    arg+="&upload=";*/
+                    arg+=BuildAnonymousUploadString (ToBase64 (filebytes));
                 }
                 else if (file=="null"&&bytes==null&&urlupload!=null)
                 {
                 	//remote upload
-                    arg+="&upload="+urlupload;
-                    baza64s="";
+                    /*arg+="&upload="+urlupload;
+                    baza64s="";*/
+                    arg+=BuildAnonymousUploadString (urlupload);
                 }
-                else baza64s="";
-                arg+=baza64s;
+                //arg+=baza64s;
+                
                 //make the request...
-                byte[] argb=Encoding.ASCII.GetBytes (arg);
-                req.ContentType="application/x-www-form-urlencoded";
-                req.ContentLength=argb.Length;
-                Stream r=req.GetRequestStream ();
-                r.Write (argb, 0, argb.Length);
-                WebResponse response = req.GetResponse ();
-                Stream data = response.GetResponseStream();
-                StreamReader sReader = new StreamReader(data);
-                String sResponse = sReader.ReadToEnd();
-                response.Close ();
-                //...and return the response
-                return sResponse;
+                if (Program.Chevereto3==false)
+                {
+	                HttpWebRequest req=(HttpWebRequest)WebRequest.Create (url);
+		            req.KeepAlive=true;
+		            req.UserAgent="Mozilla/5.0";
+		            req.ProtocolVersion=HttpVersion.Version10;
+		            req.Headers.Add ("Cache-Control: no-cache");
+		            req.Method="POST";
+		            if (Sets.ProxyOn) req.Proxy=new WebProxy (Sets.ProxyServer, Convert.ToInt32 (Sets.ProxyPort));
+	                req.ContentType="multipart/form-data";
+	                byte[] argb=Encoding.ASCII.GetBytes (arg);
+	                req.ContentLength=argb.Length;
+	                String sResponse="";
+	                using (Stream r=req.GetRequestStream ())
+	                {
+	                	r.Write (argb, 0, argb.Length);
+		            	using (WebResponse response = req.GetResponse ())
+		            	{
+		            		using (Stream data = response.GetResponseStream())
+		            		{
+		            			response.Close ();
+		            			using (StreamReader sReader = new StreamReader(data))
+		            			{
+		            				data.Close ();
+		            				sResponse = sReader.ReadToEnd();
+		            				sReader.Close ();
+		            			}
+		            		}
+		            	}
+	                }
+	                return sResponse;
+                }
+                else
+                {
+                	WebRequest request = WebRequest.Create (url+arg);
+		            WebResponse response = request.GetResponse ();
+		            Stream dataStream = response.GetResponseStream ();
+		            StreamReader reader = new StreamReader (dataStream);
+		            string responseFromServer = reader.ReadToEnd ();
+		            reader.Close ();
+		            response.Close ();
+		            return responseFromServer;
+                }
             }
             catch (Exception ee)
             {
@@ -121,9 +147,15 @@ namespace Universal_Chevereto_Uploadr
         {
         	//convert a byte array to a base64 string
             string k=Convert.ToBase64String (s, Base64FormattingOptions.None);
-            //url encodes the string - because in the url you don't need " " instead of "%20" 
+            //url encodes the string - because in the url you don't want things like " " instead of "%20"
             string str=HttpUtility.UrlEncode (k);
             return str;
+        }
+        
+        public static string BuildAnonymousUploadString (string content)
+        {
+        	if (Program.Chevereto3) return "&source="+content;
+        	else return "&upload="+content;
         }
     }
 }
